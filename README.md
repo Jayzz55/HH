@@ -1,6 +1,10 @@
 Welcome to Happy Hour!
 ======================
 
+Code climate says our code has this grade: [![Code Climate](https://codeclimate.com/repos/5544a209e30ba027fb01fcfa/badges/3eefe5c76c565286e515/gpa.svg)](https://codeclimate.com/repos/5544a209e30ba027fb01fcfa/feed)
+
+Code climate says out test coverage is: [![Test Coverage](https://codeclimate.com/repos/5544a209e30ba027fb01fcfa/badges/3eefe5c76c565286e515/coverage.svg)](https://codeclimate.com/repos/5544a209e30ba027fb01fcfa/feed)
+
 To set up:
 
 1. fork from Happy-Hour/HH to your own github repo.
