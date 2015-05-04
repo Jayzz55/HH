@@ -4,9 +4,8 @@ class CreateSpecials < ActiveRecord::Migration
       t.string :special_details
       t.string :rating
       t.string :type
-      t.string :rating
-      t.time :start
-      t.time :end
+      t.datetime :start_time
+      t.datetime :end_time
       t.boolean :monday
       t.boolean :tuesday
       t.boolean :wednesday
@@ -14,7 +13,6 @@ class CreateSpecials < ActiveRecord::Migration
       t.boolean :friday
       t.boolean :saturday
       t.boolean :sunday
-      t.string :day
       t.integer :bar_id
       t.timestamps null: false
     end
