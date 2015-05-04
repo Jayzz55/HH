@@ -53,3 +53,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'nokogiri', '~> 1.6.6.2'
+
+gem 'responders', '~> 2.0'
