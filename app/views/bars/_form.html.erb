@@ -1,0 +1,50 @@
+ <%= form_for @bar do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.label :street_number %>
+    <%= f.text_field :street_number %>
+
+     <%= f.label :street_name %>
+     <%= f.text_field :street_name %>
+
+     <%= f.label :street_identifier %>
+     <%= f.text_field :street_identifier %>
+
+     <%= f.label :suburb %>
+     <%= f.text_field :suburb %>
+
+     <%= f.label :state %>
+     <%= f.text_field :state %>
+
+     <%= f.label :postcode %>
+     <%= f.text_field :postcode %>
+
+     <%= f.label :country %>
+     <%= f.text_field :country %>
+
+     <%= f.label :website %>
+     <%= f.text_field :website %>
+
+     <%= f.label :telephone %>
+     <%= f.text_field :telephone %>
+
+     <%= f.label :review %>
+     <%= f.text_field :review %>
+
+
+     <%= f.submit %>
+ <% end %>
+
+<!--  from migration
+ t.string   "name"
+ t.integer  "street_number"
+ t.string   "street_name"
+ t.string   "street_identifier"
+ t.string   "suburb"
+ t.string   "state"
+ t.integer  "postcode"
+ t.string   "country"
+ t.string   "website"
+ t.integer  "telephone"
+ t.string   "review"-->
