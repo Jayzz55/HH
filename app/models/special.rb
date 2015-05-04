@@ -1,3 +1,3 @@
 class Special < ActiveRecord::Base
-  belongs_to :Bar
+  belongs_to :bar
 end

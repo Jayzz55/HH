@@ -5,10 +5,10 @@ class CreateSpecials < ActiveRecord::Migration
       t.string :rating
       t.string :type
       t.string :rating
-      t.datetime :start
-      t.datetime :end
+      t.time :start
+      t.time :end
+      t.string :day
       t.integer :bar_id
-
       t.timestamps null: false
     end
   end
