@@ -4,17 +4,15 @@ class CreateSpecials < ActiveRecord::Migration
       t.string :special_details
       t.string :rating
       t.string :type
-      t.string :rating
-      t.time :start
-      t.time :end
-      t.monday :boolean
-      t.tuesday :boolean
-      t.wednesday :boolean
-      t.thursday :boolean
-      t.friday :boolean
-      t.saturday :boolean
-      t.sunday :boolean
-      t.string :day
+      t.datetime :start_time
+      t.datetime :end_time
+      t.boolean :monday
+      t.boolean :tuesday
+      t.boolean :wednesday
+      t.boolean :thursday
+      t.boolean :friday
+      t.boolean :saturday
+      t.boolean :sunday
       t.integer :bar_id
       t.timestamps null: false
     end
