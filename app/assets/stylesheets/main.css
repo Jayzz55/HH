@@ -1,0 +1,95 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+section {
+  max-width: 68.57143em;
+  margin-left: auto;
+  margin-right: auto; }
+  section::after {
+    clear: both;
+    content: "";
+    display: table; }
+  section aside {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    section aside:last-child {
+      margin-right: 0; }
+  section article {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%; }
+    section article:last-child {
+      margin-right: 0; }
+
+.container {
+  max-width: 500px; }
+
+/* ------------ Header ---------------- */
+header {
+  background-color: #6cc0e5;
+  min-height: 2em; }
+
+.nav-toggle {
+  background: red;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .nav-toggle:last-child {
+    margin-right: 0; }
+
+.nav-home {
+  background: green;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .nav-home:last-child {
+    margin-right: 0; }
+  .nav-home img {
+    width: 50px; }
+
+.nav-pubs {
+  background: blue;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  .nav-pubs:last-child {
+    margin-right: 0; }
+  .nav-pubs img {
+    width: 50px; }
+
+/* -- Hamburger icon -- */
+#nav-toggle span {
+  position: absolute;
+  left: 0px;
+  top: 15px; }
+
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+  /*  left:3px;
+    top:10px;*/ }
+
+#nav-toggle span:before {
+  top: -10px; }
+
+#nav-toggle span:after {
+  bottom: -10px; }
+
+/*# sourceMappingURL=main.css.map */

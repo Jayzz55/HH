@@ -1,0 +1,74 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "variables";
+
+
+
+
+section {
+  @include outer-container;
+  aside { @include span-columns(3); }
+  article { @include span-columns(9); }
+}
+
+.container {
+  max-width:500px;
+}
+
+
+/* ------------ Header ---------------- */
+
+header {
+  background-color: #6cc0e5;
+  min-height: 2em; 
+   
+}
+
+
+
+.nav-toggle {
+  background:red;
+  @include span-columns(4);
+}
+.nav-home {
+  background:green;
+  @include span-columns(4);
+  img { 
+    width:50px;
+  }
+}
+.nav-pubs {
+  background:blue;
+  @include span-columns(4);
+  img { 
+    width:50px;
+  }
+}
+
+
+
+
+/* -- Hamburger icon -- */
+
+#nav-toggle span { position: absolute; left: 0px; top: 15px; }
+
+#nav-toggle span, 
+#nav-toggle span:before,
+#nav-toggle span:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 5px;
+  width: 35px;
+  background: white;
+  position: absolute;
+  display: block;
+  content: '';
+/*  left:3px;
+  top:10px;*/
+}
+#nav-toggle span:before {
+  top: -10px;
+}
+#nav-toggle span:after {
+  bottom: -10px; 
+}
