@@ -1,5 +1,13 @@
-<h1>Bars -good to go</h1>
+<h2>Bars</h2>
 
 <% @bars.each do |bar| %>
-<p>Bar name is: </p><p><%= bar.name %></p>
+    <p>
+      <%= link_to bar.name, bar_path(bar) %> <br>
+      <%= link_to 'edit', edit_bar_path(bar) %>
+
+      <!--refactored version of the above-->
+      <%= form_for bar, :method => :delete do |f| %>
+          <button>delete</button> <!--<%#= f.submit 'delete' %> -->
+      <% end %>
+    </p>
 <% end %>
