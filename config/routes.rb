@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   resources :bars    #, only: [:show, :index, :new, :create] todo JLW limit if necessary
 
-  get '/' => 'bars#index', :as => :root
+  get '/' => 'pages#new', :as => :root
+  # get '/bars/index' => 'bars#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
