@@ -36,8 +36,16 @@ ActiveRecord::Schema.define(version: 20150504061104) do
     t.string   "special_details"
     t.string   "rating"
     t.string   "type"
-    t.datetime "start"
-    t.datetime "end"
+    t.time     "start"
+    t.time     "end"
+    t.boolean  "monday"
+    t.boolean  "tuesday"
+    t.boolean  "wednesday"
+    t.boolean  "thursday"
+    t.boolean  "friday"
+    t.boolean  "saturday"
+    t.boolean  "sunday"
+    t.string   "day"
     t.integer  "bar_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
