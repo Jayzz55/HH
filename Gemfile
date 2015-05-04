@@ -43,6 +43,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
