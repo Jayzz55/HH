@@ -22,3 +22,11 @@ Then set up locally:
 6. rake db:create
 7. rails server (or rails s)
 8. go to localhost:3000 to see if it all worked.
+
+To scrape data and populate them in db:
+
+run ```rake scraper:scrape_data```
+
+To delete all data in db:
+
+run ```rake scraper:delete_all```
