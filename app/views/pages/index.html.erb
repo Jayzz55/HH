@@ -1,9 +1,10 @@
-<%= form_for @location do |f| %>
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+<%= form_tag("/bars", method: "get") do %>
+  <%= label_tag(:location, "Location:")%>
+  <%= select_tag 'location', options_for_select(@bars_location, "Melbourne") %>
+  <%= label_tag(:day, "Day:") %>
+  <%= select_tag 'day', options_for_select(@specials_day, @today_day) %>
 
-    <%= f.label :day %>
-    <%= f.text_field :day %>
-
-    <%= f.submit %>
+  <%= submit_tag("Search") %>
+    
 <% end %>
+
