@@ -1,4 +1,3 @@
-
 class Api::BarsController < ApiController
 
   def index

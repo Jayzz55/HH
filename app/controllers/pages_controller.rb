@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def new
+  def index
     # hard code for now. todo remove hard code.
     @location = 'Melbourne'
   end
