@@ -1,8 +1,10 @@
 class PagesController < ApplicationController
 
   def index
-    # hard code for now. todo remove hard code.
-    @location = 'Melbourne'
+    @bars_location = Bar.pluck(:suburb).uniq
+    @specials_day = %w(Mon Tue Wed Thu Fri Sat Sun Everyday)
+    time = Time.new
+    @today_day = time.strftime("%a")
   end
 
 end

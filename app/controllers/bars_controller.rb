@@ -1,7 +1,9 @@
 class BarsController < ApplicationController
 
   def index
-    @bars = Bar.all
+    @bars = Bar.where(suburb: params[:location])
+    days_boolean = Special.days_boolean(params[:day])
+    @bars = Bar.where(id: Special.where(monday: days_boolean[0], tuesday: days_boolean[1], wednesday: days_boolean[2], thursday: days_boolean[3], friday: days_boolean[4], saturday: days_boolean[5], sunday: days_boolean[6]).pluck(:bar_id))
   end
 
   def show
@@ -42,7 +44,7 @@ class BarsController < ApplicationController
   end
 
   def bar_params
-    params.require(:bar).permit(:name, :street_number, :street_name, :street_identifier, :suburb, :state, :postcode, :country, :website, :telephone, :review => [])
+    params.require(:bar).permit(:name, :address, :suburb, :state, :postcode, :contact_1, :contact_2, :contact_3, :review)
   end
 
 end

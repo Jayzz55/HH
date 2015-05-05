@@ -6,6 +6,7 @@ gem 'rails', '4.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
+gem 'bourbon'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -55,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'nokogiri', '~> 1.6.6.2'
 
 gem 'responders', '~> 2.0'
+
+gem 'active_model_serializers'
