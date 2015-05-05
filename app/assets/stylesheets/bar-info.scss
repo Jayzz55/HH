@@ -1,0 +1,42 @@
+.bar-info {
+  margin: 2em 2em 1em 2em;
+  padding-bottom: 2em;
+}
+
+.main-bar-img {  
+  position: relative;
+}
+
+.main-bar-img h2 {
+  position: absolute;
+  bottom:1em;
+  left:1em;
+  color: #fff;
+  font-size:1.8em;
+  margin: 0;
+}
+
+
+.btn-add {
+  position: absolute;
+  bottom:-2%;
+  left:60%;
+}
+
+.bar-address {
+  background: url(../images/icon-map-marker.png) no-repeat;
+  padding:.5em 0 .5em 2em;
+}
+
+.bar-tel {
+  background: url(../images/icon-phone.png) no-repeat;
+  padding:.5em 0 .5em 2em;
+}
+
+.bar-specials-day {
+  background: url(../images/icon-beer.png) no-repeat;
+  padding:.5em 0 .5em 2em;
+}
+
+
+
