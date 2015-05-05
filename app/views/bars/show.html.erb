@@ -1,39 +1,17 @@
-<h2><%= @bar.name %></h2>
-<h2><%= @address_for_geocoding %></h2>
+  <div class="main-bar-img"><%= image_tag("example-bar.jpg", :alt => "banner logo") %>
 
-
-<h3>A Google map ABC</h3>
-
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <style>
-      html, body, #map-canvas {
-          height: 100%;
-          margin: 0px;
-          padding: 0px
-      }
-  </style>
-
-  <div id="map-canvas">
-
+   <div id="map-canvas"></div>
+    <h2>Bull & Bear</h2>
+    <!-- <div class="btn-add"><a href="#"><img src="../app/assets/images/btn-add.png" /></a></div> -->
   </div>
 
-  <!--<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>-->
+  <section class="bar-info">
+    <p class="bar-address"><%= @bar.address %></p>
+    <p class="bar-tel"><%= @bar.contact_2 %></p>
+    <p class="bar-specials-day">Monday -HARDCODED</p>
+    <div id="address-geocode" style="display: none;"><%= @address_for_geocoding %></div>
+  </section>
 
-<head>
-  <title>Geolocation</title>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-  <meta charset="utf-8">
-  <script src="jquery.js"></script>
-  <script src="googleMaps.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
-  <link rel="stylesheet" type="text/css" href="style.css"/>
-</head>
-
-<body>
-<div id="map-canvas"></div>
-<h2 id="address">14 Peck terrace williams landing victoria</h2>
-<button id="address-button">geocode</button>
-</body>
-
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 

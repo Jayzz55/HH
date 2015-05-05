@@ -6,10 +6,12 @@ $(document).ready ( function(){
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
 
-    $('#address-button').on("click", function (){
+/*    $('#address-button').on("click", function (){
         console.log('clicked');
         codeAddress();
-    });
+    });*/
+
+    codeAddress();
 
     var map;
 
@@ -153,8 +155,8 @@ $(document).ready ( function(){
     // this takes an address as a string, converts it to lat long and puts it on the map and centres.
     function codeAddress() {
         console.log('code Address is:');
-        var address = document.getElementById('address').value;
-        address = 'camberwell victoria';
+        var address = document.getElementById('address-geocode').value;
+        //address = 'camberwell victoria';
         console.log(address);
         geocoder.geocode( { 'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
