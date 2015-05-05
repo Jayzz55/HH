@@ -58,3 +58,5 @@ gem 'nokogiri', '~> 1.6.6.2'
 gem 'responders', '~> 2.0'
 
 gem 'active_model_serializers'
+
+gem 'jquery-turbolinks'
