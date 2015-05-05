@@ -1,5 +1,5 @@
 <section class="results">
-  <%= @bars.each do |bar| %>
+  <% @bars.each do |bar| %>
     <div class="results-row">
       <div class="bar-thumb"><img src="<%= asset_path( 'example-small.jpg' ) %>" /></div>
       <div class="bar-detail">
@@ -19,5 +19,5 @@
       <div class="bar-addremove">icon</div>
     </div>
   <% end %>
-  
+  <%= will_paginate @bars %>
 </section>
