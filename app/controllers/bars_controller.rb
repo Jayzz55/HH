@@ -1,7 +1,7 @@
 class BarsController < ApplicationController
 
   def index
-    @bars = Bar.all
+    @bars = Bar.where(suburb: params[:location])
   end
 
   def show
