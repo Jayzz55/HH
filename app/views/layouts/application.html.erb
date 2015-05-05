@@ -8,10 +8,81 @@
 </head>
 <body>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+     <link href=
+    "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    rel="stylesheet">
+</head>
+<body>
+  
+  <div id="container">
+    <div id="canvas">
+      <div id="nav">
+        <div id="img-wrapper">
+          <img src="http://placehold.it/300x300" alt="" id="nav-logo">
+        </div>
+        <ul id="toggle">
+          <li>
+            <div class="active border">
+              <a href="#">Home</a>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <a href="#">About Us</a>
+            </div>
+            <ul>
+              <li><a href="#">The Team</a></li>
+              <li><a href="#">The Site</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <div>
+              <a href="#">Contact</a>
+            </div>
+          </li>
+
+          <li>
+            <div>
+              <a href="#">Search</a>
+            </div>
+          </li>
+        </ul>
+      </div> 
+      <div id="banner">
+        <div id="bars-wrapper">
+          <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
+        </div>
+      </div>
+      <div class="page">
+
+        <%= yield %>
+
+      </div>
+
+    </div>  
+  </div>
+
+
+
+
+
+  <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
+  <script src="script.js"></script>
+
+
+</body>
+</html>
+
 <%= link_to 'home', root_path %>
 <%= link_to 'bars', bars_path %>
-
-<%= yield %>
 
 </body>
 </html>
