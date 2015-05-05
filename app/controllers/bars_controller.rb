@@ -42,7 +42,7 @@ class BarsController < ApplicationController
   end
 
   def bar_params
-    params.require(:bar).permit(:name, :street_number, :street_name, :street_identifier, :suburb, :state, :postcode, :country, :website, :telephone, :review => [])
+    params.require(:bar).permit(:name, :address, :suburb, :state, :postcode, :contact_1, :contact_2, :contact_3, :review)
   end
 
 end
