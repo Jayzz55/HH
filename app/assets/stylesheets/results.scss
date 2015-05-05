@@ -1,3 +1,7 @@
+section.results {
+  margin:2em 0 0 0;
+}
+
 .results-row {
   @include row();
   margin-bottom: 1em;
@@ -5,9 +9,10 @@
 
 .bar-thumb {
   @include span-columns(4);
+  text-align:center;
   img {
     max-width: 100%;
-    border-radius: 10px;
+    border-radius: 100px;
   }
 }
 
@@ -15,11 +20,22 @@
   @include span-columns(4);
   h4 {
     margin:0 0 .2em 0;
+    a {
+      color:#000;
+      text-decoration: none;
+    }
   }
   ul {
     padding:0;
     li {
       font-size:.8em;
+      list-style-type: none;
+      margin-bottom:.5em;
+    }
+    /* Map Icon */ 
+    .fa-map-marker,
+    .fa-clock-o {
+      font-size: 1.3em;
     }
   }
   
