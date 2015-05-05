@@ -1,0 +1,54 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import "variables";
+@import "home";
+@import "bar-info";
+@import "results";
+
+body {
+  background:#222;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width:480px;
+  min-height: 500px;
+  background:#fff;
+}
+
+
+/* ------------ Header ---------------- */
+
+header {
+  background-color: $lightblue;
+  min-height: 50px;
+  margin-bottom:1em;
+  box-shadow: 0px 2px 4px 0px rgba(204, 204, 204, 0.87);
+
+  .nav-toggle {
+    @include span-columns(4);
+  }
+
+  .nav-home {
+    text-align: center;
+    @include span-columns(4);
+    img { 
+      width:50px;
+    }
+
+  }
+
+  .nav-pubs {
+  text-align: right;
+  @include span-columns(4);
+    img { 
+      width:50px;
+    }
+  }
+
+}  /* end header */
+
+
+
+
+

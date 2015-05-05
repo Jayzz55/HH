@@ -1,0 +1,25 @@
+.home-container {
+  width: 70%;
+  margin: 1em auto 0 auto;
+  text-align: center;
+  
+  button {
+    background-color: $lightblue;
+    padding: .5em 4em;
+    margin: 1em 0 0 0;
+    border: none;
+    color: #fff;
+    font-size:.8em;
+    font-weight: bold;
+  }
+}
+
+
+.form-row {
+  margin:0 0 1em 0;
+}
+
+.tagline {
+  font-family: $georgia;
+  margin-top:0;
+}

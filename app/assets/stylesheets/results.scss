@@ -1,0 +1,30 @@
+.results-row {
+  @include row();
+  margin-bottom: 1em;
+}
+
+.bar-thumb {
+  @include span-columns(4);
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+}
+
+.bar-detail {
+  @include span-columns(4);
+  h4 {
+    margin:0 0 .2em 0;
+  }
+  ul {
+    padding:0;
+    li {
+      font-size:.8em;
+    }
+  }
+  
+}
+
+.bar-addremove {
+  @include span-columns(4);
+} 
