@@ -18,26 +18,24 @@ ActiveRecord::Schema.define(version: 20150504061104) do
 
   create_table "bars", force: :cascade do |t|
     t.string   "name"
-    t.integer  "street_number"
-    t.string   "street_name"
-    t.string   "street_identifier"
+    t.string   "address"
     t.string   "suburb"
     t.string   "state"
     t.integer  "postcode"
-    t.string   "country"
-    t.string   "website"
-    t.integer  "telephone"
+    t.string   "contact_1"
+    t.string   "contact_2"
+    t.string   "contact_3"
     t.string   "review"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "specials", force: :cascade do |t|
     t.string   "special_details"
     t.string   "rating"
     t.string   "type"
-    t.time     "start"
-    t.time     "end"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.boolean  "monday"
     t.boolean  "tuesday"
     t.boolean  "wednesday"
@@ -45,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150504061104) do
     t.boolean  "friday"
     t.boolean  "saturday"
     t.boolean  "sunday"
-    t.string   "day"
     t.integer  "bar_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
