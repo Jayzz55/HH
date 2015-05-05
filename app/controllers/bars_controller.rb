@@ -2,6 +2,8 @@ class BarsController < ApplicationController
 
   def index
     @bars = Bar.where(suburb: params[:location])
+    days_boolean = Special.days_boolean(params[:day])
+    @bars = Bar.where(id: Special.where(monday: days_boolean[0], tuesday: days_boolean[1], wednesday: days_boolean[2], thursday: days_boolean[3], friday: days_boolean[4], saturday: days_boolean[5], sunday: days_boolean[6]).pluck(:bar_id))
   end
 
   def show
