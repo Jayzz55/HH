@@ -11,31 +11,11 @@ html, body{
 
 /*START OF NAV STYLING*/
 
-h1, h3{
-  text-align: center;
-}
-
-h1{
-  font-family: Helvetica;
-  font-weight: 700;
-  font-size: 45px;
-  margin-top: 45px;
-  color: black;
-}
-
-h3{
-  font-family: Helvetica;
-  font-weight: 400;
-  font-size: 25px;
-  margin-top: 15px;
-  color: black;
-}
-
 #container{
   width: 100%;
   height: 100vh;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 #canvas{
@@ -59,22 +39,10 @@ h3{
   position: absolute;
   left: -680px;
   top: 0;
+  bottom: 0;
   width: 680px;
-  height: 100%;
   background: white;
-
-  -webkit-transition: 0.5s ease all;
-  -moz-transition: 0.5s ease all;
-  -ms-transition: 0.5s ease all;
-  -o-transition: 0.5s ease all;
-  transition: 0.5s ease all;
-
-  /*By default, rotate the menu 90deg inwards*/
-/*  -webkit-transform:rotateY(-90deg);
-  -moz-transform:rotateY(-90deg);
-  -ms-transform:rotateY(-90deg);
-  -o-transform:rotateY(-90deg);
-  transform:rotateY(-90deg);*/
+  font-weight: 700;  
 }
 
 #bars{
@@ -87,35 +55,17 @@ h3{
   vertical-align: middle;
 }
 
-#bars:hover{
-  color: white;
-}
-
-#title{
-  margin: 0;
-  padding: 1em;
-  color: rgba(0,0,0,0.4);
-  text-shadow: 0 0 1px rgba(0,0,0,0.1);
-  font-weight: 300;
-  font-size: 2em;
-  font-family: Helvetica;
-}
-
-.border{
-  border-top: 1px solid rgba(0,0,0,0.2);
-}
-
 a.back:hover{
   color: #48b978;
   border: 2px solid #48b978
 }
 
-.clear{
+/*.clear{
   clear: both;
   display: none;
   overflow: hidden;
   visibility: hidden;
-}
+}*/
 
 #toggle{
   list-style: none;
@@ -130,10 +80,6 @@ a.back:hover{
   -o-box-shadow: inset 0 -1px rgba(0,0,0,0);
   box-shadow: inset 0 -1px rgba(0,0,0,0);
   color: black;
-}
-
-#toggle div.active{
-  background: #1f9d55;
 }
 
 #toggle div{
@@ -217,9 +163,19 @@ a.back:hover{
 }
 
 #nav-logo{
-  margin: auto;
-  margin-top: 20%;
+  width: 300px;
   display: block;
+  margin: auto;
+}
+
+#logo-wrapper{
+  width: 680px;
+  margin: 0 auto;
+  margin-top: 20%;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 300;
+
 }
 
 .page{
@@ -240,14 +196,11 @@ a.back:hover{
   width: 100%;
   /*height: 8vh;*/
   height: 150px;
-}
-
-#banner img{
+  box-shadow: 10px 10px 50px #888888;
 }
 
 #banner-img-wrapper{
   margin: auto;
-  width: 100%;
   position: absolute;
   top: 0;
   left: 50%;
@@ -255,6 +208,12 @@ a.back:hover{
   top: 5px;
 }
 
+#banner-cart-wrapper{
+  top: 0;
+  right: 0;
+  position: absolute;
+  margin-right: 20px;
+}
 
 
 
