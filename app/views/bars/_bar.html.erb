@@ -14,5 +14,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="bar-addremove">icon</div>
+  <!--display:none does not take up space. visibility:hidden take up space. No good. Below needs to be ERB tag with bar.id-->
+  <div class="bar-addremove">icon<data class="bar-id" style="display:none;"><%= bar.id %></data></div>
 </div>
+
