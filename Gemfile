@@ -7,7 +7,6 @@ gem 'rails', '4.2.1'
 gem 'pg'
 # Use SCSS for stylesheets
 gem 'bourbon'
-gem 'neat'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -30,6 +29,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+
+#some people including windows users need this for SSL certs.
+gem 'certified', '~> 1.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -59,3 +61,7 @@ gem 'nokogiri', '~> 1.6.6.2'
 gem 'responders', '~> 2.0'
 
 gem 'active_model_serializers'
+
+gem 'jquery-turbolinks'
+
+gem 'will_paginate', '~> 3.0.6'

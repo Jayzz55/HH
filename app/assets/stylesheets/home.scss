@@ -2,18 +2,14 @@
   width: 70%;
   margin: 1em auto 0 auto;
   text-align: center;
-  
-  button {
-    background-color: $lightblue;
-    padding: .5em 4em;
-    margin: 1em 0 0 0;
-    border: none;
-    color: #fff;
-    font-size:.8em;
-    font-weight: bold;
+  h1 {
+    margin:0 0 .2em 0;
+    font-family: $georgia;
+    font-weight: normal;
+    font-size:1.8em;
+    color:$dkgray;
   }
 }
-
 
 .form-row {
   margin:0 0 1em 0;
@@ -23,3 +19,24 @@
   font-family: $georgia;
   margin-top:0;
 }
+
+.home-container label {
+  display: block;
+  padding-bottom:.2em;
+}
+
+.main-logo {
+  margin: 1.5em 0 1.8em 0em;
+  img {
+    max-width:80%;
+  }
+}
+
+.form-row {
+/*  border-bottom: 1px solid red;
+  display: inline-block;*/
+}
+
+
+
+

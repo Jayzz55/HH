@@ -1,22 +1,5 @@
 <section class="results">
-  <%= @bars.each do |bar| %>
-    <div class="results-row">
-      <div class="bar-thumb"><img src="<%= asset_path( 'example-bar.jpg' ) %>" /></div>
-      <div class="bar-detail">
-        <h4><%= link_to bar.name, bar_path(bar) %></h4>
-        <ul>
-          <% bar.specials.each do |special| %>
-            <% if @specials.include? special %>
-              <li class="discount">
-                <%= special.duration%>
-                <div class="detail"><%= special.special_details %></div>
-              </li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-      <div class="bar-addremove">icon here</div>
-    </div>
-  <% end %>
-  
+  <%= render @bars %>
 </section>
+<%= will_paginate @bars %>
+
