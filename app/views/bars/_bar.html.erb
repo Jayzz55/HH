@@ -14,5 +14,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="bar-addremove">icon</div>
+  <!--need bar_id for local storage state and address for geocoding and distances-->
+  <div class="bar-addremove" data-bar_id="<%= bar.id %>" data-address="<%= @addresses_for_geocoding %>">false</div>
 </div>
+

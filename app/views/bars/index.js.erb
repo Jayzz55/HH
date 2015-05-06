@@ -1,4 +1,50 @@
 $('.results').append('<%= escape_javascript render(@bars) %>');
+
+// add listener to add remove bars to crawl list.
+$(document).ready(function(){
+    console.log('good to go selecting bars');
+    $('.results-row').on('click', '.bar-addremove', function(){
+        // todo help. Need help with this selector to return not just the first bar.
+        var $barId = $('.bar-addremove').attr('data-bar_id'); // $('#bar_id').html();
+        console.log('clicked bar:' + $barId);
+        var temp = toggleBarSelectedLocalStorage($barId);
+        console.log('Bool 2: ' + temp);
+        $('.bar-addremove').html(temp);
+
+        // todo design. selected class is a green tick. Without is a cross/+
+        $('.bar-addremove').toggleClass('selected');
+
+        //var $barId = $(this).parent().find('.bar-id').value;// = $('.bar-id').value;
+    });
+
+    var saveLocalStorage = function(saveKey,saveMe){
+        var serializedForSave = JSON.stringify(saveMe);
+        localStorage.setItem(saveKey,serializedForSave);
+        return true;
+    };
+
+    var getLocalStorage = function(key){
+        var parseMe = localStorage.getItem(key);
+        return JSON.parse(parseMe);
+    };
+
+    var toggleBarSelectedLocalStorage = function(barId){
+        var bool = getLocalStorage(barId);
+        console.log('Bool 1: ' + bool);
+        if (bool == 'yes'){
+            saveLocalStorage(barId,'no');
+            return 'no';
+        } else if (bool == 'no'){
+            saveLocalStorage(barId,'yes');
+            return 'yes'
+        } else {
+            // handles bool == nil or null
+            saveLocalStorage(barId,'yes');
+            return 'yes';
+        }
+    };
+});
+
 <% if @bars.next_page %>
   $('.pagination').replaceWith('<%= escape_javascript will_paginate(@bars) %>');
 <% else %>

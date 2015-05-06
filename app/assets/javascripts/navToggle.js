@@ -44,6 +44,8 @@ function toggleCart(){
     $('.page').removeClass('noscroll');
     $('.toggle-cart').removeClass('display-block');
     $('#canvas').removeClass('fixed-height');
+    // $('#cart').css("display", "none")
+
   } else{
     // open nav
     $('#container').addClass('display-cart');
@@ -51,6 +53,7 @@ function toggleCart(){
     $('.page').addClass('noscroll');
     $('.toggle-cart').addClass('display-block');
     $('#canvas').addClass('fixed-height');
+    // $('#cart').css("display", "inherit")
   }
 }
 
