@@ -10,26 +10,34 @@
     rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400' rel='stylesheet' type='text/css'>
   <meta charset="UTF-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <html lang="en">
 </head>
 <body>
   
   <div id="container">
     <div id="canvas">
+
       <div id="nav">
         <div id="logo-wrapper">
           <div id="nav-logo">
             <%= image_tag("logo-nav.png", :alt => "logo") %>
-            <p>David Boone</p>
           </div>
         </div>
         <ul id="toggle">
+            <p>David Boone</p>
           <li>
             <div class="active border">
               <%= link_to 'Home', root_path %>
             </div>
           </li>
+
+          <li>
+            <div>
+              <a href="#">My Hops</a>
+            </div>
+          </li>
+
 
           <li>
             <div>
@@ -39,11 +47,21 @@
 
           <li>
             <div>
-              <a href="#">Contact</a>
+              <%= link_to 'Bars', bars_path %>
             </div>
           </li>
         </ul>
       </div> 
+
+      <div id="cart">
+        <h1>My Hops</h1>
+        <ul>
+          <li>Johnys Bar</li>
+          <li>General Assembly</li>
+          <li>Rocket Burger</li>
+          <li>FLinders Street Station</li>
+        </ul>
+      </div>
 
       <div id="banner">
           <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
@@ -53,7 +71,7 @@
           </div>
 
           <div id="banner-cart-wrapper">
-            <%= image_tag("banner-cart-small.png", :alt => "cart icon") %>
+            <a href="#" class="toggle-cart"><%= image_tag("banner-cart-small.png", :alt => "cart icon") %></a>
           </div>
       </div>
       
@@ -61,7 +79,7 @@
         <%= yield %>
       </div>
 
-    </div>  
+    </div>
   </div>
 
 
@@ -70,12 +88,6 @@
 
   <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
 
-
-</body>
-</html>
-
-<%= link_to 'home', root_path %>
-<%= link_to 'bars', bars_path %>
 
 </body>
 </html>
