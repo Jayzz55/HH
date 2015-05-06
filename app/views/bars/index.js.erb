@@ -4,18 +4,17 @@ $('.results').append('<%= escape_javascript render(@bars) %>');
 $(document).ready(function(){
     console.log('good to go selecting bars');
     $('.results-row').on('click', '.bar-addremove', function(){
-        console.log('clicked bar:' + $('.bar-id').html());
-
         // todo help. Need help with this selector to return not just the first bar.
-        var $barId = $('.bar-id').html();
+        var $barId = $('.bar-addremove').attr('data-bar_id'); // $('#bar_id').html();
+        console.log('clicked bar:' + $barId);
         var temp = toggleBarSelectedLocalStorage($barId);
-        console.log('result from toggleBarSelectedLocalStorage: ' + temp);
+        console.log('Bool 2: ' + temp);
+        $('.bar-addremove').html(temp);
 
         // todo design. selected class is a green tick. Without is a cross/+
         $(this).toggleClass('selected');
 
         //var $barId = $(this).parent().find('.bar-id').value;// = $('.bar-id').value;
-        console.log($barId);
     });
 
     var saveLocalStorage = function(saveKey,saveMe){
@@ -31,16 +30,17 @@ $(document).ready(function(){
 
     var toggleBarSelectedLocalStorage = function(barId){
         var bool = getLocalStorage(barId);
-        if (bool == true){
-            saveLocalStorage(barId,false);
-            return false;
-        } else if (bool == false){
-            saveLocalStorage(barId,true);
-            return true
+        console.log('Bool 1: ' + bool);
+        if (bool == 'yes'){
+            saveLocalStorage(barId,'no');
+            return 'no';
+        } else if (bool == 'no'){
+            saveLocalStorage(barId,'yes');
+            return 'yes'
         } else {
             // handles bool == nil or null
-            saveLocalStorage(barId,true);
-            return true;
+            saveLocalStorage(barId,'yes');
+            return 'yes';
         }
     };
 });
