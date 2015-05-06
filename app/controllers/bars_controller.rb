@@ -17,6 +17,7 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
+    @address_for_geocoding = [@bar.address, @bar.suburb, @bar.state, @bar.postcode].join(' ').squeeze(' ')
   end
 
   def new
