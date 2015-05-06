@@ -7,68 +7,89 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
       <link href='http://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+         <link href=
+    "http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+    rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,400' rel='stylesheet' type='text/css'>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <html lang="en">
 </head>
 <body>
   
   <div id="container">
     <div id="canvas">
+
       <div id="nav">
-        <div id="img-wrapper">
-          <img src="http://placehold.it/300x300" alt="" id="nav-logo">
+        <div id="logo-wrapper">
+          <div id="nav-logo">
+            <%= image_tag("logo-nav.png", :alt => "logo") %>
+          </div>
         </div>
         <ul id="toggle">
+            <p>David Boone</p>
           <li>
             <div class="active border">
-              <a href="#">Home</a>
+              <%= link_to 'Home', root_path %>
             </div>
           </li>
+
+          <li>
+            <div>
+              <a href="#">My Hops</a>
+            </div>
+          </li>
+
 
           <li>
             <div>
               <a href="#">About Us</a>
             </div>
-            <ul>
-              <li><a href="#">The Team</a></li>
-              <li><a href="#">The Site</a></li>
-            </ul>
           </li>
 
           <li>
             <div>
-              <a href="#">Contact</a>
-            </div>
-          </li>
-
-          <li>
-            <div>
-              <a href="#">Search</a>
+              <%= link_to 'Bars', bars_path %>
             </div>
           </li>
         </ul>
       </div> 
+
+      <div id="cart">
+        <h1>My Hops</h1>
+        <ul>
+          <li>Johnys Bar</li>
+          <li>General Assembly</li>
+          <li>Rocket Burger</li>
+          <li>FLinders Street Station</li>
+        </ul>
+      </div>
+
       <div id="banner">
           <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
+
           <div id="banner-img-wrapper">
             <%= image_tag("logo-small-banner.png", :alt => "banner logo") %>
           </div>
+
+          <div id="banner-cart-wrapper">
+            <a href="#" class="toggle-cart"><%= image_tag("banner-cart-small.png", :alt => "cart icon") %></a>
+          </div>
       </div>
+      
       <div class="page">
-
         <%= yield %>
-
       </div>
 
-    </div>  
+    </div>
   </div>
+
+
+
+
 
   <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
 
-</body>
-</html>
-
-<%= link_to 'home', root_path %>
-<%= link_to 'bars', bars_path %>
 
 </body>
 </html>
