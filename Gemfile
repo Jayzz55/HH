@@ -30,6 +30,9 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+#some people including windows users need this for SSL certs.
+gem 'certified', '~> 1.0.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
