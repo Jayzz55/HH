@@ -59,6 +59,8 @@ input[type="submit"] {
   color: #fff;
   font-size:.8em;
   font-weight: bold;
+  width: 15em;
+  height: 3em
 }
 
 input[type="submit"]:hover {
@@ -72,8 +74,12 @@ select {
   padding:.3em;
   border:none;
   border-bottom:1px solid #999;
+  width: 15em;
 }
 
+select:focus {
+  outline: 0;
+}
 
 
 
