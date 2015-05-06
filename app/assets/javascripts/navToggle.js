@@ -43,12 +43,14 @@ function toggleCart(){
     $('#container').removeClass('dimmer');
     $('.page').removeClass('noscroll');
     $('.toggle-cart').removeClass('display-block');
+    $('#canvas').removeClass('fixed-height');
   } else{
     // open nav
     $('#container').addClass('display-cart');
     $('#container').addClass('dimmer');
     $('.page').addClass('noscroll');
     $('.toggle-cart').addClass('display-block');
+    $('#canvas').addClass('fixed-height');
   }
 }
 
