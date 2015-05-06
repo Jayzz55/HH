@@ -10,11 +10,15 @@ class BarsController < ApplicationController
     end
 
     @bars = Bar.where(id: @specials.pluck(:bar_id), suburb: params[:location]).paginate(:page => params[:page], :per_page => 8)
-
+    #todo JLW needs the lines below to work on all bars for distance from here geocode calcs
+    #@addresses_for_geocoding = [@bar.address, @bar.suburb, @bar.state, @bar.postcode].join(' ').squeeze(' ')
+    @addresses_for_geocoding = 'placeholder'
   end
 
   def show
     @bar = Bar.find(params[:id])
+    # JLW need the following line for geocoding. Please don't delete it in merge.
+    @address_for_geocoding = [@bar.address, @bar.suburb, @bar.state, @bar.postcode].join(' ').squeeze(' ')
   end
 
   def new
