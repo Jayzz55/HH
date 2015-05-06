@@ -18,5 +18,7 @@ config/database.yml.example
 
 /_templates
 
+*.scssc
+
 
 
