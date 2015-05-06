@@ -1,10 +1,32 @@
-<%= form_tag("/bars", method: "get") do %>
-  <%= label_tag(:location, "Location:")%>
-  <%= select_tag 'location', options_for_select(@bars_location, "Melbourne") %>
-  <%= label_tag(:day, "Day:") %>
-  <%= select_tag 'day', options_for_select(@specials_day, @today_day) %>
+   <section class="home-container">
+        
+      <div class="main-logo"><%= image_tag "logo-large.png" %>
 
-  <%= submit_tag("Search") %>
-    
-<% end %>
+        
+        <h1>Happy Hour</h1>
+
+        <p class="tagline">Your night starts here.</p>
+
+      </div>
+          
+      <%= form_tag("/bars", method: "get") do %>
+        
+        <div class="form-row">
+          <%= label_tag(:location, "Location:")%>
+          <%= select_tag 'location', options_for_select(@bars_location, "Melbourne") %>
+        </div>
+
+        <div class="form-row">
+          <%= label_tag(:day, "Day:") %>
+          <%= select_tag 'day', options_for_select(@specials_day, @today_day) %>
+        </div>
+
+        <%= submit_tag("Search") %>
+          
+      <% end %>
+
+    </section>
+
+
+
 

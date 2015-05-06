@@ -1,9 +1,18 @@
 class BarsController < ApplicationController
 
   def index
-    @bars = Bar.where(suburb: params[:location])
     days_boolean = Special.days_boolean(params[:day])
-    @bars = Bar.where(id: Special.where(monday: days_boolean[0], tuesday: days_boolean[1], wednesday: days_boolean[2], thursday: days_boolean[3], friday: days_boolean[4], saturday: days_boolean[5], sunday: days_boolean[6]).pluck(:bar_id))
+    if params[:day] == 'Everyday'
+      @specials = Special.where(monday: true, tuesday: true, wednesday: true, thursday: true, friday: true, saturday: true, sunday: true)
+    else
+      t = Special.arel_table
+      @specials = Special.where((t[:monday].eq(days_boolean[0]).and(t[:tuesday].eq(days_boolean[1])).and(t[:wednesday].eq(days_boolean[2])).and(t[:thursday].eq(days_boolean[3])).and(t[:friday].eq(days_boolean[4])).and(t[:saturday].eq(days_boolean[5])).and(t[:sunday].eq(days_boolean[6])).or(t[:monday].eq(true).and(t[:tuesday].eq(true)).and(t[:wednesday].eq(true)).and(t[:thursday].eq(true)).and(t[:friday].eq(true)).and(t[:saturday].eq(true)).and(t[:sunday].eq(true)) ) ))
+
+    end
+    @bars = Bar.where(id: @specials.pluck(:bar_id), suburb: params[:location]).paginate(:page => params[:page], :per_page => 10)
+
+
+
   end
 
   def show

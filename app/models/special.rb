@@ -21,5 +21,23 @@ class Special < ActiveRecord::Base
       [true, true, true, true, true, true ,true]
     end
   end
+
+  def duration
+    if (self.start_time && self.end_time)
+      "#{self.start_time_24hrs} : #{self.end_time_24hrs}"
+    elsif (!self.start_time && self.end_time)
+      "Until #{self.end_time_24hrs}"
+    elsif (self.start_time && !self.end_time)
+    "From #{self.start_time_24hrs}"
+    end
+  end
+
+  def start_time_24hrs
+    self.start_time.to_time.strftime("%R") if self.start_time
+  end
+
+  def end_time_24hrs
+    self.end_time.to_time.strftime("%R") if self.end_time
+  end
   
 end
