@@ -2,7 +2,6 @@
 @import "variables";
 @import "home";
 @import "main";
-@import "bar-info";
 
 
 html, body{
@@ -17,7 +16,7 @@ html, body{
   width: 100%;
   height: 100%;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -265,9 +264,6 @@ a.back:hover{
   vertical-align: middle;
 }
 
-.noscroll{
-  overflow-y: hidden;
-}
 
 
 
