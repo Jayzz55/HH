@@ -1,24 +1,4 @@
 <section class="results">
-  <% @bars.each do |bar| %>
-    <div class="results-row">
-      <div class="bar-thumb"><img src="<%= asset_path( 'example-small.jpg' ) %>" /></div>
-      <div class="bar-detail">
-        <h4><%= link_to bar.name, bar_path(bar) %></h4>
-        <ul>
-          <% bar.specials.each do |special| %>
-            <% if @specials.include? special %>
-              <li class="discount"><i class="fa fa-clock-o"></i>
-                <%= special.duration%>
-                <div class="detail"><%= special.special_details %></div>
-              </li>
-              <li><i class="fa fa-map-marker"></i> 300m away</li>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-      <div class="bar-addremove">icon</div>
-    </div>
-  <% end %>
-  <%= will_paginate @bars %>
+  <%= render @bars %>
 </section>
-
+<%= will_paginate @bars %>
