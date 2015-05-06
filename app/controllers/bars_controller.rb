@@ -9,7 +9,7 @@ class BarsController < ApplicationController
       @specials = Special.where((t[:monday].eq(days_boolean[0]).and(t[:tuesday].eq(days_boolean[1])).and(t[:wednesday].eq(days_boolean[2])).and(t[:thursday].eq(days_boolean[3])).and(t[:friday].eq(days_boolean[4])).and(t[:saturday].eq(days_boolean[5])).and(t[:sunday].eq(days_boolean[6])).or(t[:monday].eq(true).and(t[:tuesday].eq(true)).and(t[:wednesday].eq(true)).and(t[:thursday].eq(true)).and(t[:friday].eq(true)).and(t[:saturday].eq(true)).and(t[:sunday].eq(true)) ) ))
 
     end
-    @bars = Bar.where(id: @specials.pluck(:bar_id), suburb: params[:location]).paginate(:page => params[:page], :per_page => 10)
+    @bars = Bar.where(id: @specials.pluck(:bar_id), suburb: params[:location]).paginate(:page => params[:page], :per_page => 8)
 
 
 
