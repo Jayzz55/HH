@@ -19,13 +19,13 @@ var loadBtnState = function() {
     $(this).toggleClass('selected');
 
     if ($(this).hasClass('selected')) {
-        $(this).attr('src', '/assets/tick.svg')
+        $(this).attr('src', '/assets/tick.svg');
     } else {
-        $(this).attr('src', '/assets/add.svg')
+        $(this).attr('src', '/assets/add.svg');
     };
     
     var $barId = $(this).parent().data('bar_id');
-    console.log('clicked bar:' + $barId);
+    // console.log('clicked bar:' + $barId);
     toggleBarSelectedLocalStorage($barId);
   });
 
@@ -36,7 +36,7 @@ var loadBtnState = function() {
 
   var toggleBarSelectedLocalStorage = function(barId){
     var bool = localStorage.getItem(barId);
-    console.log('LocaStorage Bool: ' + bool);
+    // console.log('LocaStorage Bool: ' + bool);
     if (bool == 'yes'){
         localStorage.removeItem(barId);
     } else {
@@ -45,8 +45,98 @@ var loadBtnState = function() {
   };
 };
 
+var addToCart = function() {
+  var barList = JSON.parse(localStorage.getItem('barList')) || {};
+  console.log(barList);
+  renderCartList();
+
+  $('.results-row').off('click', '.bar-addremove img');
+  $('#cart').off('click', '#delete');
+  $('#delete-all').off('click');
+
+  $('.results-row').on('click', '.bar-addremove img', addToCart);
+  $('#cart').on('click', '#delete', deleteItem);
+  $('#delete-all').on('click',deleteAll);
+
+  function addToCart(){
+    var self = $(this).parent();
+    var row = $(self).parent()[0];
+    var barId = $(self).data('bar_id');
+    var item_name = $(row).find('h4 a').html();
+    var item_href = $(row).find('h4 a').attr("href");
+    var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <button id='delete'>delete</button></li>"
+
+    if($(this).hasClass('selected')){
+      barList[barId] = barId;
+      localStorage.setItem( 'barList', JSON.stringify(barList) );
+      localStorage.setItem("bar-" + barId + "-name", item_name);
+      localStorage.setItem("bar-" + barId + "-href", item_href);
+      $(self).addClass('added');
+      console.log(localStorage.getItem("bar-" + barId + "-name"));
+      $('.saved-list ul').append(item_html);
+    } else {
+      $('#cart').find('#list-'+barId).remove();
+      $(self).removeClass('added');
+      localStorage.removeItem("bar-" + barId + "-name");
+      localStorage.removeItem("bar-" + barId + "-href");
+      delete barList[barId];
+      localStorage.setItem( 'barList', JSON.stringify(barList) );
+      console.log('remove item');
+    }
+  }
+
+  function deleteItem(){
+    console.log("hear you");
+    $(this).parent().remove();
+    var barId = $(this).parent().data('bar_id');
+    console.log(barId);
+    localStorage.removeItem("bar-" + barId + "-name");
+    localStorage.removeItem("bar-" + barId + "-href");
+    delete barList[barId];
+    localStorage.setItem( 'barList', JSON.stringify(barList) );
+    $('#bar-'+barId).find('img').attr('src', '/assets/add.svg');
+    localStorage.removeItem(barId);
+    console.log(barList);
+  };
+
+  function deleteAll(){
+    var barList = {};
+    localStorage.clear();
+    $('#cart').find('ul').remove();
+    $('#cart').append('<ul>');
+  };
+
+  function renderCartList(){
+    for (var barKey in barList){
+      var barId = barList[barKey];
+      var item_name = localStorage.getItem("bar-" + barId + "-name");
+      var item_href = localStorage.getItem("bar-" + barId + "-href");
+      var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <button id='delete'>delete</button></li>"
+      if($('#list-' + barId)){
+        return;
+      } else {
+        $('#cart ul').append(item_html);
+      };
+      
+    }
+
+  };
+
+  Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+  };
+};
+
+var saveBar = function() {
+  loadBtnState();
+  addToCart();
+};
 
 $(document).ready(function(){
-  console.log('good to go selecting bars');
-  loadBtnState();
+  // console.log('good to go selecting bars');
+  saveBar();
 });
