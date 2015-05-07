@@ -22,6 +22,10 @@
             var temp = toggleBarSelectedLocalStorage($barId);
         });
 
+        $('.bar-detail ul li').each(function(){
+            $(this).last().html('test');
+        });
+
         var saveLocalStorage = function(saveKey,saveMe){
         var serializedForSave = JSON.stringify(saveMe);
         localStorage.setItem(saveKey,serializedForSave);
