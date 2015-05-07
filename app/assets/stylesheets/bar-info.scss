@@ -1,28 +1,71 @@
 .bar-info {
   margin: 2em 2em 1em 2em;
   padding-bottom: 2em;
+  font-weight: 300;
 }
 
 .main-bar-img {  
   position: relative;
+  img:first-child {
+    width:100%;
+  }
 }
+
+
+.bar-info p {
+  vertical-align: top;
+}
+
+.bar-info i.fa {  /* map and contact icons */
+  margin-right:.1em;
+  font-size:1.5em;
+}
+
+.bar-info i.fa-chevron-circle-right { font-size:1.3em; } /* (contact icon slightly smaller) */
 
 .main-bar-img h2 {
   position: absolute;
-  bottom:1em;
-  left:1em;
+  font-family: 'Roboto', sans-serif;
+  font-weight:300; 
+  bottom:.8em;
+  left:.8em;
   color: #fff;
-  font-size:1.8em;
+  font-size:1.7em;
   margin: 0;
 }
 
-.btn-add {
+
+
+/* Google Map placement */
+
+#map-canvas {
   position: absolute;
-  bottom:-2%;
-  left:60%;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  visibility: hidden;
 }
 
-.bar-address {
+.btn-map {
+  position:absolute;
+  right:10px;
+  bottom:-34px;
+}
+
+.btn-add {
+  position:absolute;
+  right:73px;
+  bottom:-34px;
+}
+
+.btn-map:hover,
+.btn-add:hover {
+  cursor: pointer;
+}
+
+#map-canvas.visible { visibility: visible; }
+/*.bar-address {
   background: url(../images/icon-map-marker.png) no-repeat;
   padding:.5em 0 .5em 2em;
 }
@@ -35,7 +78,7 @@
 .bar-specials-day {
   background: url(../images/icon-beer.png) no-repeat;
   padding:.5em 0 .5em 2em;
-}
+}*/
 
 
 
