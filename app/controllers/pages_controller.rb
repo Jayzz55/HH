@@ -6,5 +6,4 @@ class PagesController < ApplicationController
     time = Time.new
     @today_day = time.strftime("%a")
   end
-
 end

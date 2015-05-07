@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   namespace :api do 
     resources :bars, only: [:index, :show]
   end
+
+  get '/about' => 'pages#about' do
+  end
 end

@@ -233,7 +233,7 @@ a.back:hover{
   background: white;
   font-weight: 700;
   transition: right .5s;
-  /*display: none;*/
+  z-index: 1;
 
   .display-cart & {
     right:0;
@@ -322,8 +322,13 @@ a.back:hover{
   height: 100%;
 }
 
+.saved-details{
+  display: inline-block;
+}
 
-
+.saved-delete{
+  display: inline-block;
+}
 
 
 
