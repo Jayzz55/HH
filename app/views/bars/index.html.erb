@@ -7,7 +7,6 @@
 <script>
     // add listener to add remove bars to crawl list.
     $(document).ready(function(){
-        console.log('good to go selecting bars');
         $('.bar-addremove').on('click', 'img', function(){
 
             $(this).toggleClass('selected');
@@ -19,7 +18,7 @@
             };
 
             var $barId = $(this).parent().data('bar_id');
-            console.log('clicked bar:' + $barId);
+            var $addressForGeocoding = $(this).parent().data('address');
             var temp = toggleBarSelectedLocalStorage($barId);
         });
 
