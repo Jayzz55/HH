@@ -186,12 +186,17 @@ a.back:hover{
 
 .dimmer{
   background: rgba(0,0,0,0.3);
+
+  img{
+    opacity: 0.3;
+  }
 }
 
 #nav-logo img{
   display: block;
   margin: auto;
   width: 50%;
+  opacity: 1;
 }
 
 #logo-wrapper{
@@ -233,6 +238,11 @@ a.back:hover{
   .display-cart & {
     right:0;
     overflow: hidden;
+  }
+
+  h1{
+    text-align: center;
+    margin-top: 25%;
   }
 }
 
@@ -293,6 +303,7 @@ a.back:hover{
 #banner-cart-wrapper img{
   width: 8vh;
   vertical-align: middle;
+  opacity: 1;
 }
 
 #cart-badge{
