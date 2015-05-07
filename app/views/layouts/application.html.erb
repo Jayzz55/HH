@@ -49,10 +49,11 @@
       <div id="cart">
 
         <h1>My Hops</h1>
-          <button id="delete-all">delete all</button>
+          <button id="delete-all">delete all</button><br>
           <div class="saved-list">
             <ul>
               <li id='list-0' data-bar_id="0"><a href="#">I'm a dummy data</a> <button id='delete'>delete</button></li>
+              <a href=""> <%= image_tag("delete.png", :alt => "delete item") %> </a>
             </ul>
             
           </div>
@@ -70,7 +71,7 @@
 
             <div id="banner-cart-wrapper">
               <a href="#" class="toggle-cart"><%= image_tag("banner-cart-small.png", :alt => "cart icon") %>
-              </%> <div id="cart-badge" style="display:none"></div></a>
+              <div id="cart-badge" style="display:none"></div></a>
             </div>
         </div>
         
