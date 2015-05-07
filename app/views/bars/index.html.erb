@@ -11,10 +11,15 @@
 
             $(this).toggleClass('selected');
 
+            var boolBefore = getLocalStorage(barId);
+            console.log('boolBefore: ' + boolBefore);
+
+
+
             if ($(this).hasClass('selected')) {
-                $(this).attr('src', '/assets/add.png')
-            } else {
                 $(this).attr('src', '/assets/tick.png')
+            } else {
+                $(this).attr('src', '/assets/add.png')
             };
 
             var $barId = $(this).parent().data('bar_id');
@@ -22,9 +27,10 @@
             var temp = toggleBarSelectedLocalStorage($barId);
         });
 
-        $('.bar-detail ul li').each(function(){
-            $(this).last().html('test');
+        $('.bar-detail ul').each(function(){
+            $('li').last().html('test');
         });
+        //$('.bar-detail li:last-child')....
 
         var saveLocalStorage = function(saveKey,saveMe){
         var serializedForSave = JSON.stringify(saveMe);
@@ -40,16 +46,16 @@
         var toggleBarSelectedLocalStorage = function(barId){
         var bool = getLocalStorage(barId);
         console.log('LocaStorage Bool: ' + bool);
-        if (bool == 'yes'){
-            saveLocalStorage(barId,'no');
-            return 'no';
-        } else if (bool == 'no'){
-            saveLocalStorage(barId,'yes');
-            return 'yes'
+        if (bool == true){
+            saveLocalStorage(barId,false);
+            return false;
+        } else if (bool == false){
+            saveLocalStorage(barId,true);
+            return true;
         } else {
             // handles bool == nil or null
-            saveLocalStorage(barId,'yes');
-            return 'yes';
+            saveLocalStorage(barId,true);
+            return true;
         }
     };
     // DT and I moved this. If there are bugs or merge errors reject this here.
