@@ -2,17 +2,7 @@ var loadBtnState = function() {
 
   $('.bar-addremove').off('click', 'img');
 
-  $('.bar-addremove').each(function(){
-    var $barId = $(this).data('bar_id');
-    var btnState = localStorage.getItem($barId);
-
-    if (btnState == 'yes') {
-        $(this).find('img').attr('src', '/assets/tick.svg');
-        $(this).find('img').addClass('selected');
-    } else {
-        $(this).find('img').attr('src', '/assets/add.svg');
-    };
-  });
+  renderBtn();
 
   $('.bar-addremove').on('click', 'img', function(){
 
@@ -45,6 +35,23 @@ var loadBtnState = function() {
   };
 };
 
+var renderBtn = function() {
+
+  $('.bar-addremove').each(function(){
+    var barId = $(this).data('bar_id');
+    var btnState = localStorage.getItem(barId);
+
+    if (btnState == 'yes') {
+      $(this).find('img').attr('src', '/assets/tick.svg');
+      $(this).find('img').addClass('selected');
+    } else {
+      $(this).find('img').attr('src', '/assets/add.svg');
+      $(this).find('img').removeClass('selected');
+    };
+
+  });
+};
+
 var addToCart = function() {
   var barList = JSON.parse(localStorage.getItem('barList')) || {};
   console.log(barList);
@@ -73,7 +80,7 @@ var addToCart = function() {
       localStorage.setItem("bar-" + barId + "-href", item_href);
       $(self).addClass('added');
       console.log(localStorage.getItem("bar-" + barId + "-name"));
-      $('.saved-list ul').append(item_html);
+      $('.saved-list').find('ul').append(item_html);
       updateCartBadge();
     } else {
       $('#cart').find('#list-'+barId).remove();
@@ -103,10 +110,11 @@ var addToCart = function() {
   };
 
   function deleteAll(){
-    var barList = {};
-    localStorage.clear();
+    // var barList = {};
     $('#cart').find('ul').remove();
-    $('#cart').append('<ul>');
+    $('.saved-list').append('<ul>');
+    localStorage.clear();
+    renderBtn();
     updateCartBadge();
   };
 
@@ -152,5 +160,8 @@ var saveBar = function() {
 
 $(document).ready(function(){
   // console.log('good to go selecting bars');
+  $(".banner-img-wrapper").on('click', 'a', function(){
+    event.preventDefault();
+  });
   saveBar();
 });
