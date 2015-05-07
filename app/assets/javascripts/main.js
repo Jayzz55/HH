@@ -4,10 +4,10 @@ var loadBtnState = function() {
     var btnState = localStorage.getItem($barId);
 
     if (btnState == 'yes') {
-        $(this).find('img').attr('src', '/assets/tick.png');
+        $(this).find('img').attr('src', '/assets/tick.svg');
         $(this).find('img').addClass('selected');
     } else {
-        $(this).find('img').attr('src', '/assets/add.png');
+        $(this).find('img').attr('src', '/assets/add.svg');
     };
   });
 
@@ -16,9 +16,9 @@ var loadBtnState = function() {
     $(this).toggleClass('selected');
 
     if ($(this).hasClass('selected')) {
-        $(this).attr('src', '/assets/tick.png')
+        $(this).attr('src', '/assets/tick.svg')
     } else {
-        $(this).attr('src', '/assets/add.png')
+        $(this).attr('src', '/assets/add.svg')
     };
     
     var $barId = $(this).parent().data('bar_id');
