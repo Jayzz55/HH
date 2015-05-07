@@ -74,6 +74,7 @@ var addToCart = function() {
       $(self).addClass('added');
       console.log(localStorage.getItem("bar-" + barId + "-name"));
       $('.saved-list ul').append(item_html);
+      updateCartBadge();
     } else {
       $('#cart').find('#list-'+barId).remove();
       $(self).removeClass('added');
@@ -81,6 +82,7 @@ var addToCart = function() {
       localStorage.removeItem("bar-" + barId + "-href");
       delete barList[barId];
       localStorage.setItem( 'barList', JSON.stringify(barList) );
+      updateCartBadge();
       console.log('remove item');
     }
   }
@@ -96,6 +98,7 @@ var addToCart = function() {
     localStorage.setItem( 'barList', JSON.stringify(barList) );
     $('#bar-'+barId).find('img').attr('src', '/assets/add.svg');
     localStorage.removeItem(barId);
+    updateCartBadge();
     console.log(barList);
   };
 
@@ -104,6 +107,7 @@ var addToCart = function() {
     localStorage.clear();
     $('#cart').find('ul').remove();
     $('#cart').append('<ul>');
+    updateCartBadge();
   };
 
   function renderCartList(){
@@ -112,23 +116,33 @@ var addToCart = function() {
       var item_name = localStorage.getItem("bar-" + barId + "-name");
       var item_href = localStorage.getItem("bar-" + barId + "-href");
       var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <button id='delete'>delete</button></li>"
-      if($('#list-' + barId)){
+      if($('#cart').find('#list-' + barId)[0]){
         return;
       } else {
         $('#cart ul').append(item_html);
       };
-      
-    }
-
+    };
+    updateCartBadge();
   };
+};
 
-  Object.size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
+var updateCartBadge = function(){
+  var barList = JSON.parse(localStorage.getItem('barList')) || {};
+  var numBars = Object.size(barList);
+  if (numBars === 0){
+    $("#cart-badge").fadeOut();
+  } else {
+    $("#cart-badge").fadeIn();
+    $("#cart-badge").html(Object.size(barList));
   };
+}
+
+Object.size = function(obj) {
+  var size = 0, key;
+  for (key in obj) {
+      if (obj.hasOwnProperty(key)) size++;
+  }
+  return size;
 };
 
 var saveBar = function() {
