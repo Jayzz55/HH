@@ -1,7 +1,7 @@
 <div class="main-bar-img"><%= image_tag("example-bar.jpg", :alt => "bar/pub") %>
   <!-- <div class="btn-add"><a href="#"><img src="../app/assets/images/btn-add.png" /></a></div> -->
   <h2><%= @bar.name %></h2>
-  <div id="map-canvas">PLACEHOLDER</div>
+  <div id="map-canvas"></div>
   <%= image_tag("map.svg", :class => "btn-map", :alt => "view map") %>
   <%= image_tag("add.svg", :class => "btn-add", :alt => "add bar") %>
 </div>
@@ -11,11 +11,8 @@
   <p class="bar-tel"><i class="fa fa-chevron-circle-right"></i> <%= @bar.contact_2 %></p>
         
   <!-- <p class="bar-specials-day">Monday -HARDCODED</p> -->
-  <div id="address-geocode" style="display: block;"><%= @address_for_geocoding %></div>
-  <button id="address-button">Geocode</button>
+  <div id="address-geocode" style="display: block;" data-address_for_geocode="<%= @address_for_geocoding %>"></div>
 </section>
-
-
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <script>
@@ -25,16 +22,13 @@
         // Note: This example requires that you consent to location sharing when
         // prompted by your browser. If you see a blank space instead of the map, this
         // is probably because you have denied permission for location sharing.
-        $('#address-button').on("click", function (){
-            console.log('clicked');
-            codeAddress();
-        });
 
-        // Toggle Visiblity of Map
+        // Toggle visibility of Map
         $( ".btn-map" ).on("click", function (){
             $("#map-canvas").toggleClass("visible");
+            // code address has to go here. If it runs on document load there are errors. Needs an event.
+            codeAddress();
         });
-
 
         var geocoder;
         var map;
@@ -177,10 +171,9 @@
         };
         // this takes an address as a string, converts it to lat long and puts it on the map and centres.
         function codeAddress() {
-            var address = document.getElementById('address-geocode').innerHTML;
-            console.log('code Address is:');
-            console.log(address);
-            geocoder.geocode( { 'address': address}, function(results, status) {
+            var $addressToGeocode = $('#address-geocode').data('address_for_geocode');
+            console.log('code Address is:' + $addressToGeocode);
+            geocoder.geocode( { 'address': $addressToGeocode}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     map.setCenter(results[0].geometry.location);
                     var marker = new google.maps.Marker({
