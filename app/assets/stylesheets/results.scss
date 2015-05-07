@@ -8,7 +8,7 @@ section.results {
 }
 
 .bar-thumb {
-  @include span-columns(4);
+  @include span-columns(3);
   text-align:center;
   img {
     max-width: 100%;
@@ -17,8 +17,9 @@ section.results {
 }
 
 .bar-detail {
-  @include span-columns(4);
+  @include span-columns(6);
   h4 {
+    font-weight: 400;
     margin:0 0 .2em 0;
     a {
       color:#000;
@@ -27,6 +28,7 @@ section.results {
   }
   ul {
     padding:0;
+    margin-top: .3em;
     li {
       font-size:.8em;
       list-style-type: none;
@@ -42,5 +44,5 @@ section.results {
 }
 
 .bar-addremove {
-  @include span-columns(4);
+  @include span-columns(3);
 } 
