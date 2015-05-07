@@ -2,7 +2,9 @@ class BarsController < ApplicationController
 
   def index
     days_boolean = Special.days_boolean(params[:day])
-    @days_bool = days_boolean #JLW need this for show page.
+
+    @@days_bool = days_boolean #JLW need this for show page.
+
     if params[:day] == 'Everyday'
       @specials = Special.where(monday: true, tuesday: true, wednesday: true, thursday: true, friday: true, saturday: true, sunday: true)
     else
@@ -22,7 +24,7 @@ class BarsController < ApplicationController
       @specials = Special.where(monday: true, tuesday: true, wednesday: true, thursday: true, friday: true, saturday: true, sunday: true)
     else
       t = Special.arel_table
-      @specials = Special.where((t[:monday].eq(days_boolean[0]).and(t[:tuesday].eq(days_boolean[1])).and(t[:wednesday].eq(days_boolean[2])).and(t[:thursday].eq(days_boolean[3])).and(t[:friday].eq(days_boolean[4])).and(t[:saturday].eq(days_boolean[5])).and(t[:sunday].eq(days_boolean[6])).or(t[:monday].eq(true).and(t[:tuesday].eq(true)).and(t[:wednesday].eq(true)).and(t[:thursday].eq(true)).and(t[:friday].eq(true)).and(t[:saturday].eq(true)).and(t[:sunday].eq(true)) ) ))
+      @specials = Special.where((t[:monday].eq(@@days_bool[0]).and(t[:tuesday].eq(@@days_bool[1])).and(t[:wednesday].eq(@@days_bool[2])).and(t[:thursday].eq(@@days_bool[3])).and(t[:friday].eq(@@days_bool[4])).and(t[:saturday].eq(@@days_bool[5])).and(t[:sunday].eq(@@days_bool[6])).or(t[:monday].eq(true).and(t[:tuesday].eq(true)).and(t[:wednesday].eq(true)).and(t[:thursday].eq(true)).and(t[:friday].eq(true)).and(t[:saturday].eq(true)).and(t[:sunday].eq(true)) ) ))
     end
 
   end

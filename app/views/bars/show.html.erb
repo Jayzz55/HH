@@ -9,7 +9,19 @@
 <section class="bar-info">
   <p class="bar-address"><i class="fa fa-map-marker"></i> <%= @bar.address %></p>
   <p class="bar-tel"><i class="fa fa-chevron-circle-right"></i> <%= @bar.contact_2 %></p>
-        
+
+  <ul>
+    <% @bar.specials.each do |special| %>
+        <% if @specials.include? special %>
+            <li class="discount"><i class="fa fa-clock-o"></i>
+              <%= special.duration%>
+              <div class="detail"><%= special.special_details %></div>
+            </li>
+            <li class="distance"><i class="fa fa-map-marker"></i> 300m away</li>
+        <% end %>
+    <% end %>
+  </ul>
+
   <!-- <p class="bar-specials-day">Monday -HARDCODED</p> -->
   <div id="address-geocode" style="display: block;" data-address_for_geocode="<%= @address_for_geocoding %>"></div>
 </section>
