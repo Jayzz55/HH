@@ -18,41 +18,40 @@
 <body>
   
   <div id="container">
-    <div id="canvas">
 
       <div id="nav">
-        <div id="logo-wrapper">
-          <div id="nav-logo">
-            <%= image_tag("logo-nav.png", :alt => "logo") %>
+          <div id="logo-wrapper">
+            <div id="nav-logo">
+              <%= image_tag("logo-nav.png", :alt => "logo") %>
+            </div>
           </div>
-        </div>
-        <ul id="toggle">
-            <p>David Boone</p>
-          <li>
-            <div class="active border">
-              <%= link_to 'Home', root_path %>
-            </div>
-          </li>
+          <ul id="toggle">
+              <p>David Boone</p>
+            <li>
+              <div class="active border">
+                <%= link_to 'Home', root_path %>
+              </div>
+            </li>
 
-          <li>
-            <div>
-              <a href="#">My Hops</a>
-            </div>
-          </li>
+            <li>
+              <div>
+                <a href="#">My Hops</a>
+              </div>
+            </li>
 
 
-          <li>
-            <div>
-              <a href="#">About Us</a>
-            </div>
-          </li>
+            <li>
+              <div>
+                <a href="#">About Us</a>
+              </div>
+            </li>
 
-          <li>
-            <div>
-              <%= link_to 'Bars', bars_path %>
-            </div>
-          </li>
-        </ul>
+            <li>
+              <div>
+                <%= link_to 'Bars', bars_path %>
+              </div>
+            </li>
+          </ul>
       </div> 
 
       <div id="cart">
@@ -64,25 +63,27 @@
           <li>FLinders Street Station</li>
         </ul>
       </div>
+  
+      <div id="canvas">
 
-      <div id="banner">
-          <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
+        <div id="banner">
+            <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
 
-          <div id="banner-img-wrapper">
-            <%= image_tag("logo-small-banner.png", :alt => "banner logo") %>
-          </div>
+            <div id="banner-img-wrapper">
+              <%= image_tag("logo-small-banner.png", :alt => "banner logo") %>
+            </div>
 
-          <div id="banner-cart-wrapper">
-            <a href="#" class="toggle-cart"><%= image_tag("banner-cart-small.png", :alt => "cart icon") %></a>
-          </div>
+            <div id="banner-cart-wrapper">
+              <a href="#" class="toggle-cart"><%= image_tag("banner-cart-small.png", :alt => "cart icon") %>
+              </%> <div id="cart-badge">3</div></a>
+            </div>
+        </div>
+        
+        <div class="page">
+          <%= yield %>
+        </div>
+
       </div>
-      
-      <div class="page">
-        <%= yield %>
-      </div>
-
-    </div>
   </div>
-  <script src="http://code.jquery.com/jquery-1.11.2.js"></script>
 </body>
 </html>
