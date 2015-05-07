@@ -38,9 +38,9 @@ class ScrapeDataJob < ActiveJob::Base
       suburb =  page.css(".vcard li")[2].text
       state = page.css(".vcard li").css('li')[3].css('span')[0].text.gsub("\n",'').strip
       postcode = page.css(".vcard li").css('li')[3].css('a').first.text.to_i
-      contact_1 = page.css(".vcard li")[5].text if page.css(".vcard li")[5] && page.css(".vcard li")[5].text.length < 300
-      contact_2 = page.css(".vcard li")[6].text if page.css(".vcard li")[6] && page.css(".vcard li")[6].text.length < 300
-      contact_3 = page.css(".vcard li")[7].text if page.css(".vcard li")[7] && page.css(".vcard li")[7].text.length < 300
+      contact_1 = page.css(".vcard li")[5].text.strip if page.css(".vcard li")[5] && page.css(".vcard li")[5].text.length < 300
+      contact_2 = page.css(".vcard li")[6].text.strip if page.css(".vcard li")[6] && page.css(".vcard li")[6].text.length < 300
+      contact_3 = page.css(".vcard li")[7].text.strip if page.css(".vcard li")[7] && page.css(".vcard li")[7].text.length < 300
       review = page.css('h1.size-72')[0].text
 
       bar = Bar.create(name: name, address: address, suburb: suburb, state: state, postcode: postcode, contact_1: contact_1, contact_2: contact_2, contact_3: contact_3, review: review)
