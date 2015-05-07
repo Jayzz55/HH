@@ -7,65 +7,62 @@
 <script>
     // add listener to add remove bars to crawl list.
     $(document).ready(function(){
-        $('.bar-addremove').on('click', 'img', function(){
-
-            $(this).toggleClass('selected');
-
-            var boolBefore = getLocalStorage(barId);
-            console.log('boolBefore: ' + boolBefore);
-
-
-
-            if ($(this).hasClass('selected')) {
-                $(this).attr('src', '/assets/tick.png')
-            } else {
-                $(this).attr('src', '/assets/add.png')
-            };
-
-            var $barId = $(this).parent().data('bar_id');
-            var $addressForGeocoding = $(this).parent().data('address');
-            var temp = toggleBarSelectedLocalStorage($barId);
-        });
+        console.log('good to go selecting bars');
 
         $('.bar-detail ul').each(function(){
             $('li').last().html('test');
         });
         //$('.bar-detail li:last-child')....
 
+
+        $('.bar-addremove').each(function(){
+            var $barId = $(this).data('bar_id');
+            var btnState = localStorage.getItem($barId);
+            if (btnState == 'yes') {
+                $(this).find('img').attr('src', '/assets/tick.png');
+                $(this).find('img').addClass('selected');
+            } else {
+                $(this).find('img').attr('src', '/assets/add.png');
+            };
+        });
+        $('.bar-addremove').on('click', 'img', function(){
+            $(this).toggleClass('selected');
+            if ($(this).hasClass('selected')) {
+                $(this).attr('src', '/assets/tick.png')
+            } else {
+                $(this).attr('src', '/assets/add.png')
+            };
+            var $barId = $(this).parent().data('bar_id');
+            console.log('clicked bar:' + $barId);
+            var temp = toggleBarSelectedLocalStorage($barId);
+        });
         var saveLocalStorage = function(saveKey,saveMe){
-        var serializedForSave = JSON.stringify(saveMe);
-        localStorage.setItem(saveKey,serializedForSave);
-        return true;
+            localStorage.setItem(saveKey,saveMe);
+            return true;
         };
-
         var getLocalStorage = function(key){
-        var parseMe = localStorage.getItem(key);
-        return JSON.parse(parseMe);
+            return localStorage.getItem(key);
         };
-
         var toggleBarSelectedLocalStorage = function(barId){
-        var bool = getLocalStorage(barId);
-        console.log('LocaStorage Bool: ' + bool);
-        if (bool == true){
-            saveLocalStorage(barId,false);
-            return false;
-        } else if (bool == false){
-            saveLocalStorage(barId,true);
-            return true;
-        } else {
-            // handles bool == nil or null
-            saveLocalStorage(barId,true);
-            return true;
-        }
-    };
-    // DT and I moved this. If there are bugs or merge errors reject this here.
-    <% if @bars.next_page %>
-    $('.pagination').replaceWith('<%= escape_javascript will_paginate(@bars) %>');
-    <% else %>
-    $('.pagination').remove();
-    <% end %>
-
+            var bool = getLocalStorage(barId);
+            console.log('LocaStorage Bool: ' + bool);
+            if (bool == 'yes'){
+                saveLocalStorage(barId,'no');
+                return 'no';
+            } else if (bool == 'no'){
+                saveLocalStorage(barId,'yes');
+                return 'yes'
+            } else {
+                // handles bool == nil or null
+                saveLocalStorage(barId,'yes');
+                return 'yes';
+            }
+        };
+        // DT and I moved this. If there are bugs or merge errors reject this here.
+        <% if @bars.next_page %>
+        $('.pagination').replaceWith('<%= escape_javascript will_paginate(@bars) %>');
+        <% else %>
+        $('.pagination').remove();
+        <% end %>
     });
 </script>
-
-
