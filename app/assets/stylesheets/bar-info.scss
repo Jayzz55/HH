@@ -27,7 +27,7 @@
   position: absolute;
   font-family: 'Roboto', sans-serif;
   font-weight:300; 
-  bottom:.8em;
+  bottom:1.4em;
   left:.8em;
   color: #fff;
   font-size:1.7em;
@@ -49,14 +49,20 @@
 
 .btn-map {
   position:absolute;
-  right:10px;
-  bottom:-34px;
+  right:15px;
+  bottom:-31px;
+  width:67px;
+  -webkit-filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
 }
 
 .btn-add {
+  width:67px;
   position:absolute;
-  right:73px;
-  bottom:-34px;
+  right:95px;
+  bottom:-31px;
+  -webkit-filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0px 0px 4px rgba(0,0,0,0.2));
 }
 
 .btn-map:hover,
@@ -79,6 +85,9 @@
   background: url(../images/icon-beer.png) no-repeat;
   padding:.5em 0 .5em 2em;
 }*/
+
+
+
 
 
 
