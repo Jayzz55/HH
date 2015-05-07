@@ -52,11 +52,22 @@
       </div> 
 
       <div id="cart">
+
         <h1>My Hops</h1>
           <div class="saved-list">
             <div class="saved-details">
               <ul>
-                <li>Johnny's Bar</li>
+                <li><h2>Johnny's Bar</h2></li>
+                <li>300m away</li>
+              </ul>
+            </div>
+            <div class="saved-delete">
+              X
+            </div>
+
+            <div class="saved-details">
+              <ul>
+                <li><h2>Johnny's Bar</h2></li>
                 <li>300m away</li>
               </ul>
             </div>
@@ -64,6 +75,7 @@
               X
             </div>
           </div>
+
       </div>
   
       <div id="canvas">
@@ -72,7 +84,7 @@
             <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
 
           <div id="banner-img-wrapper">
-            <a href="/"><%= image_tag("logo-small-banner.png", :alt => "banner logo") %></a>
+            <%= link_to image_tag("logo-small-banner.png", :alt => "banner logo") %>
           </div>
 
             <div id="banner-cart-wrapper">

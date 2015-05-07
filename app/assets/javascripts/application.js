@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require navToggle
+//= require main
 //= require infiniteScroll
