@@ -1,16 +1,21 @@
-<div class="main-bar-img"><%= image_tag("example-bar.jpg", :alt => "banner logo") %>
+<div class="main-bar-img"><%= image_tag("example-bar.jpg", :alt => "bar/pub") %>
   <!-- <div class="btn-add"><a href="#"><img src="../app/assets/images/btn-add.png" /></a></div> -->
+  <h2><%= @bar.name %></h2>
+  <div id="map-canvas">PLACEHOLDER</div>
+  <%= image_tag("btn-map.png", :class => "btn-map", :alt => "view map") %>
+  <%= image_tag("btn-add.png", :class => "btn-add", :alt => "add bar") %>
 </div>
 
 <section class="bar-info">
-  <p class="bar-address"><%= @bar.address %></p>
-  <p class="bar-tel"><%= @bar.contact_2 %></p>
-  <p class="bar-specials-day">Monday -HARDCODED</p>
-  <div id="address-geocode" style="display: none;"><%= @address_for_geocoding %></div>
+  <p class="bar-address"><i class="fa fa-map-marker"></i> <%= @bar.address %></p>
+  <p class="bar-tel"><i class="fa fa-chevron-circle-right"></i> <%= @bar.contact_2 %></p>
+        
+  <!-- <p class="bar-specials-day">Monday -HARDCODED</p> -->
+  <div id="address-geocode" style="display: block;"><%= @address_for_geocoding %></div>
   <button id="address-button">Geocode</button>
 </section>
 
-<div id="map-canvas">PLACEHOLDER</div>
+
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <script>
@@ -25,13 +30,19 @@
             codeAddress();
         });
 
+        // Toggle Visiblity of Map
+        $( ".btn-map" ).on("click", function (){
+            $("#map-canvas").toggleClass("visible");
+        });
+
+
         var geocoder;
         var map;
         function initialize() {
             geocoder = new google.maps.Geocoder();
             //var latlng = new google.maps.LatLng(-34.397, 150.644);
             var mapOptions = {
-                zoom: 6,
+                zoom: 17,
                 disableDefaultUI:true
             };
 
