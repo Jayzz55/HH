@@ -1,4 +1,7 @@
 var loadBtnState = function() {
+
+  $('.bar-addremove').off('click', 'img');
+
   $('.bar-addremove').each(function(){
     var $barId = $(this).data('bar_id');
     var btnState = localStorage.getItem($barId);
@@ -23,7 +26,7 @@ var loadBtnState = function() {
     
     var $barId = $(this).parent().data('bar_id');
     console.log('clicked bar:' + $barId);
-    var temp = toggleBarSelectedLocalStorage($barId);
+    toggleBarSelectedLocalStorage($barId);
   });
 
   var saveLocalStorage = function(saveKey,saveMe){
@@ -31,23 +34,13 @@ var loadBtnState = function() {
     return true;
   };
 
-  var getLocalStorage = function(key){
-    return localStorage.getItem(key);
-  };
-
   var toggleBarSelectedLocalStorage = function(barId){
-    var bool = getLocalStorage(barId);
+    var bool = localStorage.getItem(barId);
     console.log('LocaStorage Bool: ' + bool);
     if (bool == 'yes'){
-        saveLocalStorage(barId,'no');
-        return 'no';
-    } else if (bool == 'no'){
-        saveLocalStorage(barId,'yes');
-        return 'yes'
+        localStorage.removeItem(barId);
     } else {
-        // handles bool == nil or null
         saveLocalStorage(barId,'yes');
-        return 'yes';
     }
   };
 };
