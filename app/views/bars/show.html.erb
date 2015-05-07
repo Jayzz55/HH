@@ -17,17 +17,23 @@
               <%= special.duration%>
               <div class="detail"><%= special.special_details %></div>
             </li>
-            <li class="distance"><i class="fa fa-map-marker"></i> 300m away</li>
         <% end %>
     <% end %>
+    <li class="distance"><i class="fa fa-map-marker"></i><span id="bar-distance">???</span>m away</li>
   </ul>
 
-  <!-- <p class="bar-specials-day">Monday -HARDCODED</p> -->
   <div id="address-geocode" style="display: block;" data-address_for_geocode="<%= @address_for_geocoding %>"></div>
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
 <script>
+    // using globals. todo refactor.
+    var positionHereLat;
+    var positionHereLon;
+    var positionBarLat;
+    var positionBarLon;
+    var distanceToBar;
+
     $(document).ready ( function(){
         // JLW there is an option for asynchronous loading of the google map.
         // This would be better. Add it time. There is also an option to style the map.
@@ -40,6 +46,15 @@
             $("#map-canvas").toggleClass("visible");
             // code address has to go here. If it runs on document load there are errors. Needs an event.
             codeAddress();
+            console.log('positionBarLat: ' + positionBarLat);
+            console.log('positionBarLon: ' + positionBarLon);
+            console.log('positionHereLat: ' + positionHereLat);
+            console.log('positionHereLon: ' + positionHereLon);
+
+            distanceToBar = getDistance(positionBarLat, positionBarLon, positionHereLat,positionHereLon);
+            distanceToBar = Math.round(distanceToBar/100) * 100;
+            console.log('distanceToBar: ' + distanceToBar);
+            $('#bar-distance').html(distanceToBar);
         });
 
         var geocoder;
@@ -151,6 +166,9 @@
             // Try HTML5 geolocation
             if(navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
+                    // JLW extracting lat long of here.
+                    positionHereLat = position.coords.latitude;
+                    positionHereLon = position.coords.longitude;
                     var pos = new google.maps.LatLng(position.coords.latitude,
                             position.coords.longitude);
                     var infowindow = new google.maps.InfoWindow({
@@ -188,6 +206,8 @@
             geocoder.geocode( { 'address': $addressToGeocode}, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK) {
                     map.setCenter(results[0].geometry.location);
+                    positionBarLat = results[0]['geometry']['location']['A'];
+                    positionBarLon = results[0]['geometry']['location']['F'];
                     var marker = new google.maps.Marker({
                         map: map,
                         position: results[0].geometry.location
@@ -196,6 +216,22 @@
                     alert('Geocode was not successful for the following reason: ' + status);
                 };
             });
+        };
+
+        var rad = function(x) {
+            return x * Math.PI / 180;
+        };
+
+        var getDistance = function(p1lat, p1lng, p2lat, p2lng) {
+            var R = 6378137; // Earth’s mean radius in meter
+            var dLat = rad(p2lat - p1lat);
+            var dLong = rad(p2lng - p1lng);
+            var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                    Math.cos(rad(p1lat)) * Math.cos(rad(p2lat)) *
+                    Math.sin(dLong / 2) * Math.sin(dLong / 2);
+            var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            var d = R * c;
+            return d; // returns the distance in meters
         };
         google.maps.event.addDomListener(window, 'load', initialize);
     });
