@@ -61,7 +61,8 @@ var addToCart = function() {
   $('#cart').off('click', '#delete');
   $('#delete-all').off('click');
 
-  $('.results-row').on('click', '.bar-addremove img', addToCart);
+  
+  $('.bar-addremove').on('click', 'img', addToCart);
   $('#cart').on('click', '#delete', deleteItem);
   $('#delete-all').on('click',deleteAll);
 
@@ -123,7 +124,7 @@ var addToCart = function() {
       var barId = barList[barKey];
       var item_name = localStorage.getItem("bar-" + barId + "-name");
       var item_href = localStorage.getItem("bar-" + barId + "-href");
-      var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <button id='delete'>delete</button></li>"
+      var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <a id='delete' class='remove-bar' href='#''></a></li>"
       if($('#cart').find('#list-' + barId)[0]){
         return;
       } else {
