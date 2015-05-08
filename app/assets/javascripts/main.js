@@ -62,6 +62,7 @@ var addToCart = function() {
   $('#delete-all').off('click');
 
   $('.results-row').on('click', '.bar-addremove img', addToCart);
+  $('.bar-addremove').on('click', 'img', addToCart);
   $('#cart').on('click', '#delete', deleteItem);
   $('#delete-all').on('click',deleteAll);
 

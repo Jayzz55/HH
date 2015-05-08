@@ -2,9 +2,12 @@
   <!-- <div class="btn-add"><a href="#"><img src="../app/assets/images/btn-add.png" /></a></div> -->
   <h2><%= @bar.name %></h2>
   <div id="map-canvas"></div>
-  <%= image_tag("map.svg", :class => "btn-map", :alt => "view map") %>
-  <%= image_tag("add.svg", :class => "btn-add", :alt => "add bar") %>
-</div>
+    <%= image_tag("map.svg", :class => "btn-map", :alt => "view map") %>
+		<h4 style="display:none"><%= link_to @bar.name, bar_path(@bar) %></h4>
+	  <div id="bar-<%= @bar.id %>" class="bar-addremove btn-add" data-bar_id="<%= @bar.id %>">
+	    <img src=<%= image_path('add.svg') %> alt="">
+    </div>
+	</div>
 
 <section class="bar-info">
   <p class="bar-address"><i class="fa fa-map-marker"></i> <%= @bar.address %></p>
