@@ -42,8 +42,12 @@ class ScrapeDataJob < ActiveJob::Base
       contact_2 = page.css(".vcard li")[6].text.strip if page.css(".vcard li")[6] && page.css(".vcard li")[6].text.length < 300
       contact_3 = page.css(".vcard li")[7].text.strip if page.css(".vcard li")[7] && page.css(".vcard li")[7].text.length < 300
       review = page.css('h1.size-72')[0].text
+      large_img = URI.escape(page.css('.panel').css('li a')[0]['href']) if page.css('.panel').css('li a')[0]
+      large_img_url = "https://www.thehappiesthour.com#{large_img}"
+      small_img = URI.escape(page.css('.panel').css('li a img')[0]['src']) if page.css('.panel').css('li a img')[0] 
+      small_img_url = "https://www.thehappiesthour.com#{small_img}"
 
-      bar = Bar.create(name: name, address: address, suburb: suburb, state: state, postcode: postcode, contact_1: contact_1, contact_2: contact_2, contact_3: contact_3, review: review)
+      bar = Bar.create(name: name, address: address, suburb: suburb, state: state, postcode: postcode, contact_1: contact_1, contact_2: contact_2, contact_3: contact_3, review: review, lrg_img: large_img_url, sml_img: small_img_url)
 
       ## Bar special details
       data_table =  page.css("table.table-venue tr")
