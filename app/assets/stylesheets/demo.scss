@@ -10,23 +10,13 @@ body{
   overflow: hidden;
 }
 
-/*iframe{
-  margin-top: 10%;
-  width: 600px;
-  height: 1200px;
-}
-
-iframe:focus { 
-    outline: none;
-}
-
-iframe[seamless] { 
-    display: block;
-}*/
 .phone-wrapper{
   width: 800px;
   height: 800px;
   margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .ios-device  {
@@ -62,14 +52,14 @@ iframe[seamless] {
     border-color:  #ddd;
  }
 .iphone-6-plus--large  {
-    border-radius:  12px;
+    border-radius:  25px;
     width:  45%;
     height:  85%;
-    padding:  5% 2%;
+    padding:  6% 2%;
  }
 .ios-device--large::after  {
-    width:  16px;
-    height:  16px;
+    width:  32px;
+    height:  32px;
     bottom:  5px;
  }
 .ios-device__screen iframe, .ios-device__screen img  {
