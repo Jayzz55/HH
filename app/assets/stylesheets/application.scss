@@ -2,6 +2,7 @@
 @import "variables";
 @import "home";
 @import "main";
+@import "about";
 
 
 html, body{
@@ -325,10 +326,10 @@ a.back:hover{
 
 .saved-details{
   height: 10%;
-  background-color: rgba(0,0,0,0.1);
-  } 
-  ul li{
+  background-color: rgba(0,0,0,0.1); 
+  ul li {
   display: inline;
+  }
 }
 
 .saved-delete{
@@ -338,7 +339,6 @@ a.back:hover{
   vertical-align: middle;
   line-height: 100%;
   top: 0;
-
 }
 
 
