@@ -29,9 +29,15 @@
   margin-bottom:3em;
 }
 
+
 .remove-bar {
   float: right;
-  margin-top:-.6em;
+  margin-top:-1.3em;
+  width:45px;
+  height:45px;
+  background-image: url(delete.svg);
+  display: block;
+  background-size: contain;
 }
 
 .remove-bar img {
