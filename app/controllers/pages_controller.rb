@@ -6,7 +6,14 @@ class PagesController < ApplicationController
     time = Time.new
     @today_day = time.strftime("%a")
   end
+
+  def pictures
+
+  end
+
+  def about
+
+  end
+
 end
 
-def about
-end
