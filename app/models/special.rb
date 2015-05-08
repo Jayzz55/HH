@@ -22,6 +22,20 @@ class Special < ActiveRecord::Base
     end
   end
 
+  def days_convert
+    monday = self.monday ? 'Mon' : ''
+    tuesday = self.tuesday ? 'Tue' : ''
+    wednesday = self.wednesday ? 'Wed' : ''
+    thursday = self.thursday ? 'Thu' : ''
+    friday = self.friday ? 'Fri' : ''
+    saturday = self.saturday ? 'Sat' : ''
+    sunday = self.sunday ? 'Sun' : ''
+
+    days_array = [monday, tuesday, wednesday, thursday, friday, saturday, sunday]
+    result = days_array.select{|day| day != ''}
+    result.join(', ')  
+  end
+
   def duration
     if (self.start_time && self.end_time)
       "#{self.start_time_24hrs} : #{self.end_time_24hrs}"

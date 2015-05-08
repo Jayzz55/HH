@@ -15,14 +15,16 @@
 
   <ul>
     <% @bar.specials.each do |special| %>
-        <% if @specials.include? special %>
-            <li class="discount"><i class="fa fa-clock-o"></i>
-              <%= special.duration%>
-              <div class="detail"><%= special.special_details %></div>
-            </li>
+      <% if special.days_convert.length > 0 %>
+        <li><h4 class='special-days'> <%=  special.days_convert %> </h4></li>
+        <% if special.duration %>
+          <i class="fa fa-clock-o"></i>
+          <%= special.duration%>
         <% end %>
+        <div class="detail"><%= special.special_details %></div>
+      <% end %>
     <% end %>
-    <li class="distance"><i class="fa fa-map-marker"></i><span id="bar-distance">???</span>m away</li>
+    <div class="distance"><i class="fa fa-map-marker"></i><span id="bar-distance">???</span>m away</div>
   </ul>
 
   <div id="address-geocode" style="display: block;" data-address_for_geocode="<%= @address_for_geocoding %>"></div>
