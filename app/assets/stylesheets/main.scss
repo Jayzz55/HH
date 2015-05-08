@@ -6,7 +6,6 @@
 @import "results";
 
 body {
-  background:#222;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -80,6 +79,36 @@ select {
 select:focus {
   outline: 0;
 }
+
+
+
+/* ------------ Media Queries ---------------- */
+
+/* iPhone 4 */
+@media screen and (device-aspect-ratio: 2/3) {
+  .main-logo img {
+    max-width:40%;
+  }
+
+  #container .page {
+    padding-top:1.4em;
+  }
+
+  .main-logo {
+    margin:0 0 1em 0;
+    h1 {
+      font-size:1.5em;
+    }
+  }
+
+  .home-container {
+    margin-top:0;
+  }
+}
+
+/* iPhone 5 */
+@media screen and (device-aspect-ratio: 40/71) {}
+
 
 
 
