@@ -43,27 +43,21 @@
               </div>
             </li>
 
-            <li>
-              <div>
-                <%= link_to 'Bars', bars_path %>
-              </div>
-            </li>
           </ul>
       </div> 
 
       <div id="cart">
+
         <h1>My Hops</h1>
+          <button id="delete-all">delete all</button><br>
           <div class="saved-list">
-            <div class="saved-details">
-              <ul>
-                <li>Johnny's Bar</li>
-                <li>300m away</li>
-              </ul>
-            </div>
-            <div class="saved-delete">
-              X
-            </div>
+            <ul>
+              <li id='list-0' data-bar_id="0"><a href="#">I'm a dummy data</a> <button id='delete'>delete</button></li>
+              <a href=""> <%= image_tag("delete.png", :alt => "delete item") %> </a>
+            </ul>
+            
           </div>
+
       </div>
   
       <div id="canvas">
@@ -72,12 +66,12 @@
             <a href="#" class="toggle-nav" id="bars"><i class="fa fa-bars"></i></a>
 
           <div id="banner-img-wrapper">
-            <a href="/"><%= image_tag("logo-small-banner.png", :alt => "banner logo") %></a>
+            <%= image_tag("logo-small-banner.png", :alt => "banner logo") %>
           </div>
 
             <div id="banner-cart-wrapper">
               <a href="#" class="toggle-cart"><%= image_tag("banner-cart-small.png", :alt => "cart icon") %>
-              </%> <div id="cart-badge">3</div></a>
+              <div id="cart-badge" style="display:none"></div></a>
             </div>
         </div>
         
