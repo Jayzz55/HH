@@ -10,6 +10,8 @@ class CreateBars < ActiveRecord::Migration
       t.string :contact_2
       t.string :contact_3
       t.string :review
+      t.string :lrg_img
+      t.string :sml_img
       t.timestamps null: false
     end
   end
