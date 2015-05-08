@@ -17,6 +17,12 @@ $(function(){
   });
 });
 
+$(function(){
+  $('.nav-toggle-cart').click(function(){
+    navToggleCart();
+  });
+});
+
 // The toggleNav function itself
 function toggleNavigation(){
   if ($('#container').hasClass('display-nav')){
@@ -65,6 +71,15 @@ function altToggle(){
     $('#container').removeClass('dimmer');
     $('#canvas').removeClass('fixed-height');
   }
+}
+
+function navToggleCart(){
+    toggleNavigation();
+    var delay=300;
+    setTimeout(function(){
+      toggleCart();
+  }, delay);
+
 }
 
 //= require_tree .
