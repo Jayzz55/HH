@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   get '/about' => 'pages#about' do
   end
+
+    get '/demo' => 'pages#demo' do
+  end
 end

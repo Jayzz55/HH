@@ -3,6 +3,7 @@
 @import "home";
 @import "main";
 @import "about";
+@import "demo";
 @import "my-hops";
 
 
@@ -68,7 +69,7 @@ transition: 0.5s ease all;
 }
 
 #bars{
-  font-size: 5vh;
+  font-size: 8vh;
   margin-left: 0;
   color: white;
   position: absolute;
@@ -349,8 +350,6 @@ a.back:hover{
   line-height: 100%;
   top: 0;
 }
-
-
 
 
 
