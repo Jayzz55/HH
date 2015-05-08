@@ -26,8 +26,6 @@ ActiveRecord::Schema.define(version: 20150504061104) do
     t.string   "contact_2"
     t.string   "contact_3"
     t.string   "review"
-    t.string   "lrg_img"
-    t.string   "sml_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
