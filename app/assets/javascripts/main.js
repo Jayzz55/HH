@@ -111,7 +111,7 @@ var addToCart = function() {
   };
 
   function deleteAll(){
-    // var barList = {};
+    barList = {};
     $('#cart').find('ul').remove();
     $('.saved-list').append('<ul>');
     localStorage.clear();
