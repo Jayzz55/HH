@@ -72,7 +72,7 @@ var addToCart = function() {
     var barId = $(self).data('bar_id');
     var item_name = $(row).find('h4 a').html();
     var item_href = $(row).find('h4 a').attr("href");
-    var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <button id='delete'>delete</button></li>"
+    var item_html = "<li id='list-" + barId + "' data-bar_id=" + barId + "><a href="+ item_href +">" + item_name + "</a> <a id='delete' class='remove-bar' href='#''></a></li>"
 
     if($(this).hasClass('selected')){
       barList[barId] = barId;
