@@ -43,17 +43,22 @@ function toggleNavigation(){
 }
 
 function toggleCart(){
+    var navLinks = $('#toggle');
     if ($('#container').hasClass('display-cart')){
     // close nav
+    navLinks.show();  // show desktop nav
+    console.log("hiding nav");
     $('#container').removeClass('display-cart');
     $('#container').removeClass('dimmer');
     $('.page').removeClass('noscroll');
     $('.toggle-cart').removeClass('display-block');
     $('#canvas').removeClass('fixed-height');
+
     // $('#cart').css("display", "none")
 
   } else{
     // open nav
+    navLinks.hide();  // hide desktop nav
     $('#container').addClass('display-cart');
     $('#container').addClass('dimmer');
     $('.page').addClass('noscroll');
@@ -65,7 +70,9 @@ function toggleCart(){
 
 
 function altToggle(){
+  var navLinks = $('#toggle');
   if ($('#container').hasClass('display-nav') || $('#container').hasClass('display-cart') ){
+    $('#toggle').show(); // show desktop nav
     $('#container').removeClass('display-nav');
     $('#container').removeClass('display-cart');
     $('#container').removeClass('dimmer');
