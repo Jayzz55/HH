@@ -1,0 +1,124 @@
+/* Desktop styling */
+
+@media screen and (min-width:700px) {
+
+  #page {
+    max-width: 850px;
+    margin:auto;
+  }
+
+  .home-container {
+    width: 35%;
+    margin-top: -1em;
+  }
+
+  .home-container h1 {
+    margin-top:-.5em;
+    font-size: 3em;
+  }
+
+  .home-container .tagline {
+    font-size: 1.4em;
+  }
+
+  #canvas #banner {
+    height:67px;
+  } 
+
+  #banner #banner-img-wrapper img {
+    width:60px;
+    height:auto;
+  }
+
+  #banner #banner-cart-wrapper img {
+    width:60px;
+    height:auto;
+  }
+
+  #bars {
+    display: none;  /* hide hamburger icon */
+  }
+
+  ul#toggle p {
+    display: none;  /* hide tagline */
+  }
+
+  #banner-img-wrapper img {  /* move pinto icon to left side */
+    float:left;
+  }
+
+  div#canvas {
+    z-index: 100;
+  }
+
+  div#banner {
+    z-index: 200;
+  }
+
+  div#nav {
+    z-index:300;
+  }
+
+  ul#toggle {
+    position: fixed;
+    left:0!important;
+    height:120px;  /* needed to prevent DIV covering all other content */
+    width: auto;
+    top:-7px;
+    text-align: center;
+    width:80%;
+    margin-left: 10%;
+  }
+
+  #toggle div:hover {
+    background: none!important;  /* overides mobile rule */
+  }
+
+  #toggle li {
+    margin-right: 2.1em;
+    display: inline-block;
+  }
+
+  #toggle li:last-child {
+    margin-right: 0;
+   }
+
+  #toggle li div {
+    border:none;
+  }
+
+  ul#toggle li a {
+    font-size: 1.9em;
+    transition: color 0.3s ease;
+    color: #fff;
+    font-weight:400;
+  }
+
+  ul#toggle a:hover {
+    color:#222;
+  }
+
+  .home-container input[type="submit"] {
+    width: 17em;
+  }
+
+  #banner-img-wrapper {
+    left:15px;
+  }
+
+
+  /* My Hops section */
+
+  div.saved-list img {
+    width:45px;
+  }
+
+
+}
+
+
+
+
+
+
+
