@@ -1,5 +1,5 @@
 <div class="results-row">
-  <div class="bar-thumb"><img src=<%= small_image(bar) %> /></div>
+  <div class="bar-thumb"><a href="<%= bar_path(bar) %>"><img src=<%= small_image(bar) %> /></div>
   <div class="bar-detail">
     <h4><%= link_to bar.name, bar_path(bar) %></h4>
     <ul>
